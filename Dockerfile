@@ -11,4 +11,4 @@ RUN crontab /etc/cron.d/refresh-cron
 
 RUN touch /var/log/cron.log
 
-CMD cron && tail -f /var/log/cron.log
+CMD printenv > /etc/environment && cron && tail -f /var/log/cron.log

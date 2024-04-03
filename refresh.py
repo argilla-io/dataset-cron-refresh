@@ -1,14 +1,18 @@
+import os
 import argilla as rg
 
+# this is where annotators will do annotations
 SOURCE_DATASET = "prompts"
-SOURCE_WS = "admin"
+SOURCE_WS = "dibt"
+# this is a restricted workspace
+# where admins/owners will store the annotations
+# no annotator has access
 RESULTS_DATASET = "results"
-RESULTS_WS = "private-results"
+RESULTS_WS = "admin"
 
 rg.init(
-    api_url="https://argillaexplorers-the-prompt-collective.hf.space/",
-    extra_headers={"Authorization": "Bearer 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"},
-    api_key="owner.apikey"
+    api_url=os.getenv("ARGILLA_API_URL"),
+    api_key=os.getenv("ARGILLA_API_KEY")
 )
 
 def completed_with_overlap(records, min_overlap=2):
@@ -34,8 +38,8 @@ if len(completed_remote_records)>0:
     print(f"Updating private results with {len(completed_remote_records)} records.")
     results = rg.FeedbackDataset.from_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
     results.add_records(completed_local_records)
+    results.push_to_huggingface("argilla/prompt-collective", token=os.getenv("HF_TOKEN"))
   except:
-    # this should go to another workspace
     local_submitted.push_to_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
 
   dataset.delete_records(list(completed_remote_records))

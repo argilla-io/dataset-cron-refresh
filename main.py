@@ -74,6 +74,7 @@ for (
             results.push_to_huggingface(
                 f"DIBT/MPEP_{language}", token=HF_TOKEN, private=False
             )
-        except Exception as _:
+        except Exception as e:
+            print(e)
             local_submitted.push_to_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
         dataset.delete_records(list(completed_remote_records))

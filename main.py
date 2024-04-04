@@ -40,6 +40,13 @@ for (
     RESULTS_WS,
 ) in dataset_info:
     rg.init(api_url=api_url, api_key=api_key)
+
+    # Create workspace if not present
+    workspaces = rg.Workspace.list()
+    workspace_presnt = any(workspace.name == RESULTS_WS for workspace in workspaces)
+    if not workspace_presnt:
+        rg.Workspace.create(RESULTS_WS)
+
     dataset = rg.FeedbackDataset.from_argilla(SOURCE_DATASET, workspace=SOURCE_WS)
     print(f"Current dataset size {language}: {len(dataset)} ")
 

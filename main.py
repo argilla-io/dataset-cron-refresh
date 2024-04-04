@@ -2,7 +2,7 @@ import os
 
 import argilla as rg
 
-REQUIRED_RESPONSES = os.environ["REQUIRED_RESPONSES"]
+REQUIRED_RESPONSES = int(os.environ["REQUIRED_RESPONSES"])
 HF_TOKEN = os.environ["HF_TOKEN"]
 languages = ["DUTCH"]
 

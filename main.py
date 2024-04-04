@@ -13,8 +13,10 @@ dataset_info = [
         os.environ[f"ARGILLA_API_KEY_{language_}"],
         os.environ[f"SOURCE_DATASET_{language_}"],
         os.environ[f"SOURCE_WORKSPACE_{language_}"],
-        os.environ[f"RESULTS_DATASET_{language_}"],
-        os.environ[f"RESULTS_WORKSPACE_{language_}"],
+        os.environ.get(
+            f"RESULTS_DATASET_{language_}", os.environ[f"SOURCE_DATASET_{language_}"]
+        ),
+        os.environ.get(f"RESULTS_WORKSPACE_{language_}", "owner"),
     )
     for language_ in languages
 ]

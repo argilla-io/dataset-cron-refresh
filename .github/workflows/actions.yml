@@ -33,4 +33,8 @@ jobs:
           ARGILLA_API_KEY_DUTCH: ${{ secrets.ARGILLA_API_KEY_DUTCH }}
           SOURCE_DATASET_DUTCH: ${{ secrets.SOURCE_DATASET_DUTCH }}
           SOURCE_WORKSPACE_DUTCH: ${{ secrets.SOURCE_WORKSPACE_DUTCH }}
+          ARGILLA_API_URL_SPANISH: ${{ secrets.ARGILLA_API_URL_SPANISH }}
+          ARGILLA_API_KEY_SPANISH: ${{ secrets.ARGILLA_API_KEY_SPANISH }}
+          SOURCE_DATASET_SPANISH: ${{ secrets.SOURCE_DATASET_SPANISH }}
+          SOURCE_WORKSPACE_SPANISH: ${{ secrets.SOURCE_WORKSPACE_SPANISH }}
         run: python main.py

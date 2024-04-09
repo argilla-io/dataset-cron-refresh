@@ -67,9 +67,14 @@ for (
             results = rg.FeedbackDataset.from_argilla(
                 RESULTS_DATASET, workspace=RESULTS_WS
             )
-            results.add_records(completed_local_records)
+            try:
+                results.add_records(completed_local_records)
+                dataset.delete_records(list(completed_remote_records))
+            except Exception as e:
+                pass
         except Exception as e:
             results = local_submitted.push_to_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
+            dataset.delete_records(list(completed_remote_records))
             
         print(
             f"Updating private results with {len(completed_remote_records)} records {language}."
@@ -77,4 +82,4 @@ for (
         results.push_to_huggingface(
             f"DIBT/MPEP_{language}", token=HF_TOKEN
         )
-        dataset.delete_records(list(completed_remote_records))
+        

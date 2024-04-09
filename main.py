@@ -69,12 +69,12 @@ for (
             )
             try:
                 results.add_records(completed_local_records)
-                results.delete_records(list(completed_remote_records))
+                dataset.delete_records(list(completed_remote_records))
             except Exception as e:
                 pass
         except Exception as e:
             results = local_submitted.push_to_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
-            results.delete_records(list(completed_remote_records))
+            dataset.delete_records(list(completed_remote_records))
             
         print(
             f"Updating private results with {len(completed_remote_records)} records {language}."

@@ -64,12 +64,13 @@ for (
             local_submitted.records, REQUIRED_RESPONSES
         )
         try:
-            results = local_submitted.push_to_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
-        except Exception as e:
             results = rg.FeedbackDataset.from_argilla(
                 RESULTS_DATASET, workspace=RESULTS_WS
             )
             results.add_records(completed_local_records)
+        except Exception as e:
+            results = local_submitted.push_to_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
+            
         print(
             f"Updating private results with {len(completed_remote_records)} records {language}."
         )

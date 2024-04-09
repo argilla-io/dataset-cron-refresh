@@ -64,17 +64,17 @@ for (
             local_submitted.records, REQUIRED_RESPONSES
         )
         try:
-            print(
-                f"Updating private results with {len(completed_remote_records)} records {language}."
-            )
+            results = local_submitted.push_to_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
+        except Exception as e:
             results = rg.FeedbackDataset.from_argilla(
                 RESULTS_DATASET, workspace=RESULTS_WS
             )
-            results.add_records(completed_local_records)
-            results.push_to_huggingface(
-                f"DIBT/MPEP_{language}", token=HF_TOKEN, private=False
-            )
-        except Exception as e:
-            print(e)
-            local_submitted.push_to_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
+        print(
+            f"Updating private results with {len(completed_remote_records)} records {language}."
+        )
+        results.add_records(completed_local_records)
+        results.push_to_huggingface(
+            f"DIBT/MPEP_{language}", token=HF_TOKEN
+        )
+   
         dataset.delete_records(list(completed_remote_records))

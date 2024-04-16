@@ -29,6 +29,8 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           REQUIRED_RESPONSES: ${{ secrets.REQUIRED_RESPONSES }}
+
+          # Argilla API URLs
           ARGILLA_API_URL_DUTCH: ${{ secrets.ARGILLA_API_URL_DUTCH }}
           ARGILLA_API_URL_SPANISH: ${{ secrets.ARGILLA_API_URL_SPANISH }}
           ARGILLA_API_URL_MALAGASY: ${{ secrets.ARGILLA_API_URL_MALAGASY }}
@@ -37,6 +39,9 @@ jobs:
           ARGILLA_API_URL_FILIPINO: ${{ secrets.ARGILLA_API_URL_FILIPINO }}
           ARGILLA_API_URL_ARABIC: ${{ secrets.ARGILLA_API_URL_ARABIC }}
           ARGILLA_API_URL_TAMIL: ${{ secrets.ARGILLA_API_URL_TAMIL }}
+          ARGILLA_API_URL_CZECH: ${{ secrets.ARGILLA_API_URL_CZECH }}
+
+          # Argilla API Keys
           ARGILLA_API_KEY_DUTCH: ${{ secrets.ARGILLA_API_KEY_DUTCH }}
           ARGILLA_API_KEY_SPANISH: ${{ secrets.ARGILLA_API_KEY_SPANISH }}
           ARGILLA_API_KEY_MALAGASY: ${{ secrets.ARGILLA_API_KEY_MALAGASY }}
@@ -45,6 +50,9 @@ jobs:
           ARGILLA_API_KEY_FILIPINO: ${{ secrets.ARGILLA_API_KEY_FILIPINO }}
           ARGILLA_API_KEY_ARABIC: ${{ secrets.ARGILLA_API_KEY_ARABIC }}
           ARGILLA_API_KEY_TAMIL: ${{ secrets.ARGILLA_API_KEY_TAMIL }}
+          ARGILLA_API_KEY_CZECH: ${{ secrets.ARGILLA_API_KEY_CZECH }}
+
+          # Source Datasets
           SOURCE_DATASET_DUTCH: ${{ secrets.SOURCE_DATASET_DUTCH }}
           SOURCE_DATASET_SPANISH: ${{ secrets.SOURCE_DATASET_SPANISH }}
           SOURCE_DATASET_MALAGASY: ${{ secrets.SOURCE_DATASET_MALAGASY }}
@@ -53,6 +61,9 @@ jobs:
           SOURCE_DATASET_FILIPINO: ${{ secrets.SOURCE_DATASET_FILIPINO }}
           SOURCE_DATASET_ARABIC: ${{ secrets.SOURCE_DATASET_ARABIC }}
           SOURCE_DATASET_TAMIL: ${{ secrets.SOURCE_DATASET_TAMIL }}
+          SOURCE_DATASET_CZECH: ${{ secrets.SOURCE_DATASET_CZECH }}
+
+          # Source Workspaces
           SOURCE_WORKSPACE_DUTCH: ${{ secrets.SOURCE_WORKSPACE_DUTCH }}
           SOURCE_WORKSPACE_SPANISH: ${{ secrets.SOURCE_WORKSPACE_SPANISH }}
           SOURCE_WORKSPACE_MALAGASY: ${{ secrets.SOURCE_WORKSPACE_MALAGASY }}

@@ -4,7 +4,7 @@ import argilla as rg
 
 REQUIRED_RESPONSES = int(os.environ["REQUIRED_RESPONSES"])
 HF_TOKEN = os.environ["HF_TOKEN"]
-languages = ["DUTCH", "SPANISH", "MALAGASY", "GERMAN", "SWAHILI", "FILIPINO", "ARABIC", "TAMIL"]
+languages = ["DUTCH", "SPANISH", "MALAGASY", "GERMAN", "SWAHILI", "FILIPINO", "ARABIC", "TAMIL", "CZECH"]
 
 dataset_info = [
     (

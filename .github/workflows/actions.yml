@@ -61,4 +61,5 @@ jobs:
           SOURCE_WORKSPACE_FILIPINO: ${{ secrets.SOURCE_WORKSPACE_FILIPINO }}
           SOURCE_WORKSPACE_ARABIC: ${{ secrets.SOURCE_WORKSPACE_ARABIC }}
           SOURCE_WORKSPACE_TAMIL: ${{ secrets.SOURCE_WORKSPACE_TAMIL }}
+          SOURCE_WORKSPACE_CZECH: ${{ secrets.SOURCE_WORKSPACE_CZECH }}
         run: python main.py

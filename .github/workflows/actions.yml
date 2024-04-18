@@ -5,20 +5,19 @@ on:
     branches:
       - "main"
   schedule:
-    - cron: '0 * * * *' # Every hour at the top of the hour
+    - cron: "0 * * * *" # Every hour at the top of the hour
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
 
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9' # install the python version needed
+          python-version: "3.9" # install the python version needed
 
       - name: install python packages
         run: |
@@ -40,6 +39,7 @@ jobs:
           ARGILLA_API_URL_ARABIC: ${{ secrets.ARGILLA_API_URL_ARABIC }}
           ARGILLA_API_URL_TAMIL: ${{ secrets.ARGILLA_API_URL_TAMIL }}
           ARGILLA_API_URL_CZECH: ${{ secrets.ARGILLA_API_URL_CZECH }}
+          ARGILLA_API_URL_HUNGARIAN: ${{ secrets.ARGILLA_API_URL_HUNGARIAN }}
 
           # Argilla API Keys
           ARGILLA_API_KEY_DUTCH: ${{ secrets.ARGILLA_API_KEY_DUTCH }}
@@ -51,6 +51,7 @@ jobs:
           ARGILLA_API_KEY_ARABIC: ${{ secrets.ARGILLA_API_KEY_ARABIC }}
           ARGILLA_API_KEY_TAMIL: ${{ secrets.ARGILLA_API_KEY_TAMIL }}
           ARGILLA_API_KEY_CZECH: ${{ secrets.ARGILLA_API_KEY_CZECH }}
+          ARGILLA_API_KEY_HUNGARIAN: ${{ secrets.ARGILLA_API_KEY_HUNGARIAN }}
 
           # Source Datasets
           SOURCE_DATASET_DUTCH: ${{ secrets.SOURCE_DATASET_DUTCH }}
@@ -62,6 +63,7 @@ jobs:
           SOURCE_DATASET_ARABIC: ${{ secrets.SOURCE_DATASET_ARABIC }}
           SOURCE_DATASET_TAMIL: ${{ secrets.SOURCE_DATASET_TAMIL }}
           SOURCE_DATASET_CZECH: ${{ secrets.SOURCE_DATASET_CZECH }}
+          SOURCE_DATASET_HUNGARIAN: ${{ secrets.SOURCE_DATASET_HUNGARIAN }}
 
           # Source Workspaces
           SOURCE_WORKSPACE_DUTCH: ${{ secrets.SOURCE_WORKSPACE_DUTCH }}
@@ -73,4 +75,6 @@ jobs:
           SOURCE_WORKSPACE_ARABIC: ${{ secrets.SOURCE_WORKSPACE_ARABIC }}
           SOURCE_WORKSPACE_TAMIL: ${{ secrets.SOURCE_WORKSPACE_TAMIL }}
           SOURCE_WORKSPACE_CZECH: ${{ secrets.SOURCE_WORKSPACE_CZECH }}
+          SOURCE_WORKSPACE_HUNGARIAN: ${{ secrets.SOURCE_WORKSPACE_HUNGARIAN }}
+
         run: python main.py

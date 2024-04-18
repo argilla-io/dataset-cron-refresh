@@ -4,7 +4,18 @@ import argilla as rg
 
 REQUIRED_RESPONSES = int(os.environ["REQUIRED_RESPONSES"])
 HF_TOKEN = os.environ["HF_TOKEN"]
-languages = ["DUTCH", "SPANISH", "MALAGASY", "GERMAN", "SWAHILI", "FILIPINO", "ARABIC", "TAMIL", "CZECH"]
+languages = [
+    "DUTCH",
+    "SPANISH",
+    "MALAGASY",
+    "GERMAN",
+    "SWAHILI",
+    "FILIPINO",
+    "ARABIC",
+    "TAMIL",
+    "CZECH",
+    "HUNGARIAN",
+]
 
 dataset_info = [
     (
@@ -73,13 +84,12 @@ for (
             except Exception as e:
                 pass
         except Exception as e:
-            results = local_submitted.push_to_argilla(RESULTS_DATASET, workspace=RESULTS_WS)
+            results = local_submitted.push_to_argilla(
+                RESULTS_DATASET, workspace=RESULTS_WS
+            )
             dataset.delete_records(list(completed_remote_records))
-            
+
         print(
             f"Updating private results with {len(completed_remote_records)} records {language}."
         )
-        results.push_to_huggingface(
-            f"DIBT/MPEP_{language}", token=HF_TOKEN
-        )
-        
+        results.push_to_huggingface(f"DIBT/MPEP_{language}", token=HF_TOKEN)

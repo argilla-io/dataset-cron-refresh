@@ -15,6 +15,7 @@ languages = [
     "TAMIL",
     "CZECH",
     "HUNGARIAN",
+    "RUSSIAN"
 ]
 
 dataset_info = [

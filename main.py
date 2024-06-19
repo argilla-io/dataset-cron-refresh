@@ -7,7 +7,7 @@ HF_TOKEN = os.environ["HF_TOKEN"]
 languages = [
     "DUTCH",
     "SPANISH",
-    "MALAGASY",
+    # "MALAGASY",
     "GERMAN",
     "SWAHILI",
     "FILIPINO",
